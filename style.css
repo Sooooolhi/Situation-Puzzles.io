@@ -1,162 +1,108 @@
-/* Reset basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body background and general layout */
+/* 전반적인 바디 설정 */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #a0d8f5, #b6e1f9); /* 하늘색 그라데이션 */
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #A8C0FF, #FFB6C1); /* 파스텔톤 그라데이션 배경 */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-}
-
-/* Main container styling */
-.main-container {
+    height: 100vh;
     text-align: center;
-    margin-top: 100px; /* 상단 여백 추가 */
 }
 
-/* Game box styling with rounded corners */
-.game-box {
+/* 게임 세부 페이지의 컨테이너 */
+.game-container {
+    width: 80%;
+    max-width: 900px;
     background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;  /* 둥근 네모박스 */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    transition: transform 0.3s ease;
-    margin-bottom: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 30px;
 }
 
-/* Hover effect for the game box */
-.game-box:hover {
-    transform: scale(1.05);
-}
-
-/* Game description styling inside rounded box */
-.game-description {
-    font-size: 20px;
-    color: #555;
+/* 상황 문구 스타일 */
+.situation-box {
+    background: linear-gradient(135deg, #A8C0FF, #FFB6C1); /* 상단에 그라데이션 */
+    padding: 30px;
+    border-radius: 15px;
     margin-bottom: 30px;
 }
 
-/* Start button styling with 3D effect */
-.start-button {
-    background: linear-gradient(145deg, #76c7f7, #a0d8f5); /* 하늘색 그라데이션 */
-    padding: 15px 30px;
-    font-size: 24px;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+.situation-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.situation-description {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* 질문 버튼 스타일 */
+.question-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
     margin-top: 20px;
 }
 
-.start-button:hover {
-    background: linear-gradient(145deg, #a0d8f5, #76c7f7); /* 반전된 그라데이션 효과 */
-    transform: translateY(-3px);
-}
-
-/* Game container (게임 세부 페이지) */
-.game-container {
-    padding: 50px;
-    background: #f5f5f5;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Situation box styling inside rounded box */
-.situation-box {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-}
-
-/* Situation title styling */
-.situation-title {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Situation description text styling inside rounded box */
-.situation-description {
-    font-size: 18px;
-    color: #666;
-}
-
-/* Buttons for questions */
-.question-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+/* 각 버튼 스타일 */
 .question-button {
-    background: #ffffff;
+    background: #A8C0FF;
+    border: none;
+    color: white;
     padding: 20px;
     font-size: 20px;
-    color: #333;
-    border: 2px solid #bbb;
-    border-radius: 12px;
+    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
-    width: 100%;
-    transition: transform 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .question-button:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.05);
+    background: #FFB6C1;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Answer popup styling inside rounded box */
+/* 팝업창 스타일 */
 .answer-popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.answer-popup p {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
     text-align: center;
-    width: 300px;
 }
 
 .close-popup {
-    background: #ff4d4d;
-    padding: 10px 20px;
-    font-size: 18px;
+    background-color: #FFB6C1;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    font-size: 16px;
 }
 
 .close-popup:hover {
-    background: #e60000;
-}
-
-/* Padding and margin for various elements to ensure spacing */
-.situation-box,
-.question-buttons,
-.answer-popup {
-    margin: 10px 0;
-}
-
-/* General button and text spacing */
-button {
-    margin-top: 20px;
+    background-color: #A8C0FF;
 }
