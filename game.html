@@ -3,56 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게임</title>
+    <title>게임 페이지</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <div class="situation-box">
-            <h2>상황: ‘치명적인 장난’</h2>
-            <p>한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다. 그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 남자는 어떻게 죽게 되었을까요?</p>
+            <h2 class="situation-title">상황: 치명적인 장난</h2>
+            <p class="situation-description">
+                한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다. 그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 남자는 어떻게 죽게 되었을까요?
+            </p>
         </div>
 
         <div class="question-buttons">
-            <button class="answer-button" onclick="showPopup('예')">1. 질문 1</button>
-            <button class="answer-button" onclick="showPopup('아니오')">2. 질문 2</button>
-            <button class="answer-button" onclick="showPopup('그럴 수도 있음')">3. 질문 3</button>
-            <button class="answer-button" onclick="showPopup('관련없음')">4. 질문 4</button>
-            <button class="answer-button" onclick="showPopup('예')">5. 질문 5</button>
-            <button class="answer-button" onclick="showPopup('아니오')">6. 질문 6</button>
-            <button class="answer-button" onclick="showPopup('그럴 수도 있음')">7. 질문 7</button>
-            <button class="answer-button" onclick="showPopup('관련없음')">8. 질문 8</button>
-            <button class="answer-button" onclick="showPopup('예')">9. 질문 9</button>
-            <button class="answer-button" onclick="showPopup('아니오')">10. 질문 10</button>
-            <button class="answer-button" onclick="showPopup('그럴 수도 있음')">11. 질문 11</button>
-            <button class="answer-button" onclick="showPopup('관련없음')">12. 질문 12</button>
-            <button class="answer-button" onclick="showPopup('예')">13. 질문 13</button>
-            <button class="answer-button" onclick="showPopup('아니오')">14. 질문 14</button>
-            <button class="answer-button" onclick="showPopup('그럴 수도 있음')">15. 질문 15</button>
-            <button class="answer-button" onclick="showPopup('관련없음')">16. 질문 16</button>
-            <button class="answer-button" onclick="showPopup('예')">17. 질문 17</button>
-            <button class="answer-button" onclick="showPopup('아니오')">18. 질문 18</button>
-            <button class="answer-button" onclick="showPopup('그럴 수도 있음')">19. 질문 19</button>
-            <button class="answer-button" onclick="showPopup('관련없음')">20. 질문 20</button>
+            <button class="question-button" onclick="showAnswer('예')">남자는 절벽 아래에서 발견되었나요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">남자는 절벽 위에서 혼자 있었나요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자는 연을 날리고 있었나요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자의 손에 쥐어져 있던 것은 끊어진 연줄인가요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">절벽 위에는 남자가 남긴 유서가 있었나요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자는 아이들과 함께 있었나요?</button>
+            <button class="question-button" onclick="showAnswer('연을 잡으려는 아이들을 막으려 함')">남자가 절벽 가장자리로 다가간 이유는 무엇인가요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">남자가 자살한 것인가요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자의 죽음은 사고로 인한 것인가요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자가 절벽 아래로 떨어진 이유는 연줄이 끊어졌기 때문인가요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자의 죽음에 아이들이 간접적으로 관여했나요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">남자가 절벽에서 발자국을 남겼나요?</button>
+            <button class="question-button" onclick="showAnswer('예')">연이 낡아서 끊어졌을 가능성이 있나요?</button>
+            <button class="question-button" onclick="showAnswer('남자가 연을 잡으려 했다고 주장함')">아이들은 남자의 죽음에 대해 어떤 증언을 했나요?</button>
+            <button class="question-button" onclick="showAnswer('연이 바람에 날아갔다')">남자가 절벽 아래로 떨어지기 전에 어떤 일이 발생했나요?</button>
+            <button class="question-button" onclick="showAnswer('예')">남자는 연을 날리던 중 바람이 강해졌나요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">남자의 죽음은 의도적인 살인이었나요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">남자가 절벽에서 몸부림을 쳤다는 증거가 있나요?</button>
+            <button class="question-button" onclick="showAnswer('아니오')">남자는 연을 날리던 중 다른 사람과 다투었나요?</button>
         </div>
 
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="popup-close" onclick="closePopup()">&times;</span>
-                <p id="popup-message"></p>
-            </div>
+        <div id="answer-popup" class="answer-popup">
+            <p id="answer-text"></p>
+            <button id="close-popup" class="close-popup">닫기</button>
         </div>
     </div>
 
     <script>
-        function showPopup(message) {
-            document.getElementById('popup-message').textContent = message;
-            document.getElementById('popup').style.display = 'block';
+        function showAnswer(answer) {
+            document.getElementById('answer-text').textContent = "답변: " + answer;
+            document.getElementById('answer-popup').style.display = 'block';
         }
 
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
+        document.getElementById('close-popup').addEventListener('click', function() {
+            document.getElementById('answer-popup').style.display = 'none';
+        });
     </script>
 </body>
 </html>
