@@ -1,150 +1,130 @@
-/* 기본 스타일 */
-html, body {
+/* Reset basic styles */
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
+    box-sizing: border-box;
 }
 
-/* 메인 페이지 */
-.main-page-container {
+/* Main page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5a7d1, #b3c9f7);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #ff7f50, #ffb74d);
 }
 
-.main-box {
+.main-container {
     text-align: center;
+}
+
+.game-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.game-box:hover {
+    transform: scale(1.05);
+}
+
+.game-description {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.start-button {
+    background: linear-gradient(145deg, #6db3f2, #4e98e1);
+    padding: 15px 30px;
+    font-size: 24px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.start-button:hover {
+    background: linear-gradient(145deg, #4e98e1, #6db3f2);
+}
+
+/* Game page styling */
+.game-container {
     padding: 50px;
-    background-color: #ffffff;
+    background: #f2f2f2;
+}
+
+.situation-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: rotateY(0deg);
-    animation: rotate-box 6s infinite alternate;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-@keyframes rotate-box {
-    0% {
-        transform: rotateY(0deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
-}
-
-.main-title {
-    font-size: 50px;
-    color: #ff7f50;
-    margin-bottom: 20px;
-}
-
-.main-description {
-    font-size: 22px;
-    color: #333;
     margin-bottom: 40px;
 }
 
-.start-game-button {
-    background-color: #ff7f50;
-    color: white;
-    font-size: 25px;
-    padding: 20px 40px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.start-game-button:hover {
-    background-color: #ff5722;
-}
-
-/* 게임 페이지 컨테이너 */
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 50px;
-    min-height: 100vh;
-    text-align: center;
-}
-
-/* 상황 박스 */
-.situation-box {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    width: 80%;
-    max-width: 600px;
-}
-
 .situation-title {
-    font-size: 32px;
-    color: #4a90e2;
-    margin-bottom: 10px;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .situation-description {
-    font-size: 22px;
-    color: #333;
+    font-size: 18px;
+    color: #666;
 }
 
-/* 질문 버튼들 */
 .question-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    max-width: 600px;
-    width: 80%;
 }
 
-/* 각 질문 버튼 */
 .question-button {
-    font-size: 20px;
+    background: #ffffff;
     padding: 20px;
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 8px;
+    font-size: 20px;
+    color: #333;
+    border: 2px solid #bbb;
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 80px;
+    width: 100%;
+    transition: transform 0.3s ease;
 }
 
 .question-button:hover {
+    background-color: #f0f0f0;
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* 팝업창 스타일 */
 .answer-popup {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: #ffffff;
     padding: 20px;
-    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
 }
 
 .close-popup {
-    background-color: #f44336;
+    background: #ff4d4d;
+    padding: 10px 20px;
+    font-size: 18px;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-top: 10px;
+}
+
+.close-popup:hover {
+    background: #e60000;
 }
