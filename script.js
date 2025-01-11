@@ -1,6 +1,8 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, onChildAdded } from "firebase/database";
+// Firebase 설정
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
+// Firebase Config
 const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
@@ -11,19 +13,31 @@ const firebaseConfig = {
     appId: "YOUR_APP_ID"
 };
 
+// Firebase 초기화
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const chatRef = ref(db, "chats");
 
-// 메시지 보내기 함수
+// 메시지 전송 함수
 function sendMessage() {
     const input = document.getElementById('user-input');
     const userMessage = input.value;
     if (userMessage.trim() === '') return;
 
-    // Firebase에 메시지 저장
+    // Firebase에 사용자 메시지 저장
     push(chatRef, { message: userMessage, timestamp: Date.now() });
-    input.value = ''; // 입력 필드 초기화
+
+    // 사용자 메시지를 채팅 창에 추가
+    const chat = document.getElementById('chat');
+    const userBubble = document.createElement('div');
+    userBubble.textContent = `사용자: ${userMessage}`;
+    chat.appendChild(userBubble);
+
+    // 입력 필드 초기화
+    input.value = '';
+
+    // OpenAI API로 AI 응답 가져오기
+    getAIResponse(userMessage);
 }
 
 // Firebase에서 메시지 수신
@@ -35,72 +49,32 @@ onChildAdded(chatRef, (snapshot) => {
     chat.appendChild(messageBubble);
 });
 
+// OpenAI API로 AI의 예/아니오 응답 받기
+function getAIResponse(userMessage) {
+    const apiKey = 'YOUR_OPENAI_API_KEY'; // OpenAI API 키를 여기에 입력
+    const url = 'https://api.openai.com/v1/completions';
+    const data = {
+        model: "text-davinci-003",
+        prompt: `User asked: ${userMessage}. Please answer "yes" or "no" in a short sentence.`,
+        max_tokens: 50,
+    };
 
-
-
-
-function sendMessage() {
-    const input = document.getElementById('user-input');
-    const chat = document.getElementById('chat');
-
-    const userMessage = input.value;
-    if (userMessage.trim() === '') return;
-
-    // 사용자의 메시지를 채팅에 추가
-    const userBubble = document.createElement('div');
-    userBubble.textContent = `사용자: ${userMessage}`;
-    chat.appendChild(userBubble);
-
-    // AI 응답 (임시)
-    const aiBubble = document.createElement('div');
-    aiBubble.textContent = `AI: 이건 임시 응답입니다.`;
-    chat.appendChild(aiBubble);
-
-    // 입력 필드 초기화
-    input.value = '';
-}
-
-
-
-
-
-
-// Firebase 설정 코드 (app.js)
-// Firebase에 메시지 기록을 저장하는 코드 부분은 이미 위에 존재하므로 이 코드는 중복입니다.
-firebase.database().ref("messages").push({
-    user: "사용자",
-    message: userInput
-});
-
-
-
-
-
-const fetch = require('node-fetch');
-
-const openai_api_key = 'your-openai-api-key';
-
-app.post('/get-ai-response', async (req, res) => {
-    const question = req.body.question;
-    
-    const response = await fetch('https://api.openai.com/v1/completions', {
-        method: 'POST',
+    axios.post(url, data, {
         headers: {
+            'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${openai_api_key}`,
-        },
-        body: JSON.stringify({
-            model: "text-davinci-003",
-            prompt: question,
-            max_tokens: 50,
-        })
+        }
+    })
+    .then(response => {
+        const aiMessage = response.data.choices[0].text.trim();
+
+        // AI의 응답을 채팅 창에 추가
+        const chat = document.getElementById('chat');
+        const aiBubble = document.createElement('div');
+        aiBubble.textContent = `AI: ${aiMessage}`;
+        chat.appendChild(aiBubble);
+    })
+    .catch(error => {
+        console.error("Error fetching AI response:", error);
     });
-
-    const data = await response.json();
-    const aiAnswer = data.choices[0].text.trim();
-    
-    res.json({ answer: aiAnswer });
-});
-
-
-
+}
