@@ -1,64 +1,127 @@
+/* 기본 설정 */
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f0e68c, #f7c6a0);
-    background-image: url('your-background-image.jpg'); /* 배경 이미지 경로 */
-    background-size: cover;
+    padding: 0;
+    background: #F1F7FB; /* 연한 파스텔 하늘색 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center; /* 모든 텍스트 중앙 정렬 */
+}
+
+.game-container {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 게임 제목 */
+.game-container h2 {
+    font-size: 36px;
+    color: #5B8FBC; /* 하늘색 */
+    margin-bottom: 20px;
+}
+
+/* 상황 박스 */
+.situation-box {
+    background-color: #FBE6E6; /* 연핑크색 배경 */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #333;
+    display: inline-block; /* 중앙 정렬을 위해 inline-block 사용 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    width: 100%;
+}
+
+/* 질문 버튼들 */
+.question-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* 버튼들 중앙 정렬 */
+}
+
+.question-button {
+    background-color: #A7D8F7; /* 연한 하늘색 */
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 70%; /* 버튼 크기 조정 */
+    margin: 0 auto; /* 버튼을 중앙 정렬 */
+}
+
+.question-button:hover {
+    background-color: #76B5D6; /* 버튼 호버 시 색상 */
+}
+
+/* 팝업 */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center; /* 팝업 내용 중앙 정렬 */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 80%;
+}
+
+.popup-close {
+    font-size: 30px;
+    color: #FF6B6B; /* 연핑크색 */
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.popup-close:hover {
+    color: #FF4C4C; /* 호버 시 색상 */
+}
+
+.popup p {
+    font-size: 22px;
     color: #333;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-}
-
+/* 버튼 스타일 */
 button {
-    padding: 15px 30px;
-    font-size: 1.5em;
-    background-color: #ffeb3b; /* 강한 노란색 */
+    font-size: 16px;
+    padding: 15px;
+    background-color: #FFBCF9; /* 연보라색 */
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    color: white;
+    width: 70%; /* 버튼 크기 조정 */
+    margin: 0 auto; /* 버튼을 중앙 정렬 */
+    display: block;
 }
 
 button:hover {
-    background-color: #fdd835; /* 노란색 호버 효과 */
-}
-
-.question-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.answer-button {
-    margin: 10px 0;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    background-color: #ffeb3b; /* 강한 노란색 */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.answer-button:hover {
-    background-color: #fdd835; /* 노란색 호버 효과 */
+    background-color: #FF94F3; /* 버튼 호버 색상 */
 }
