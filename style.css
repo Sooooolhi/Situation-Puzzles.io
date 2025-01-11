@@ -5,20 +5,24 @@
     box-sizing: border-box;
 }
 
-/* Main page styling */
+/* Body background and general layout */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f5a7d1, #b3c9f7);
+    background: linear-gradient(135deg, #a5a2f3, #b3c9f7); /* 파스텔 보라색과 하늘색 그라데이션 */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
+/* Main container styling */
 .main-container {
     text-align: center;
+    margin-top: 100px; /* 상단 여백 추가 */
 }
 
+/* Game box styling */
 .game-box {
     background: #ffffff;
     padding: 40px;
@@ -26,20 +30,24 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     width: 400px;
     transition: transform 0.3s ease;
+    margin-bottom: 50px;
 }
 
+/* Hover effect for the game box */
 .game-box:hover {
     transform: scale(1.05);
 }
 
+/* Game description styling */
 .game-description {
     font-size: 20px;
     color: #555;
     margin-bottom: 30px;
 }
 
+/* Start button styling with 3D effect */
 .start-button {
-    background: linear-gradient(145deg, #6db3f2, #4e98e1);
+    background: linear-gradient(145deg, #6c5ce7, #a29bfe); /* 파스텔 보라색 그라데이션 */
     padding: 15px 30px;
     font-size: 24px;
     color: white;
@@ -47,18 +55,23 @@ body {
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .start-button:hover {
-    background: linear-gradient(145deg, #4e98e1, #6db3f2);
+    background: linear-gradient(145deg, #a29bfe, #6c5ce7); /* 반전된 그라데이션 효과 */
+    transform: translateY(-3px);
 }
 
-/* Game page styling */
+/* Game container (게임 세부 페이지) */
 .game-container {
     padding: 50px;
-    background: #f2f2f2;
+    background: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Situation box styling */
 .situation-box {
     background: #ffffff;
     padding: 40px;
@@ -67,17 +80,20 @@ body {
     margin-bottom: 40px;
 }
 
+/* Situation title styling */
 .situation-title {
     font-size: 36px;
     color: #333;
     margin-bottom: 20px;
 }
 
+/* Situation description text styling */
 .situation-description {
     font-size: 18px;
     color: #666;
 }
 
+/* Buttons for questions */
 .question-buttons {
     display: flex;
     flex-direction: column;
@@ -94,6 +110,7 @@ body {
     cursor: pointer;
     width: 100%;
     transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .question-button:hover {
@@ -101,6 +118,7 @@ body {
     transform: scale(1.05);
 }
 
+/* Answer popup styling */
 .answer-popup {
     display: none;
     position: fixed;
@@ -123,8 +141,22 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .close-popup:hover {
     background: #e60000;
 }
+
+/* Padding and margin for various elements to ensure spacing */
+.situation-box,
+.question-buttons,
+.answer-popup {
+    margin: 10px 0;
+}
+
+/* General button and text spacing */
+button {
+    margin-top: 20px;
+}
+
