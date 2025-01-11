@@ -8,7 +8,7 @@
 /* Body background and general layout */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #a5a2f3, #b3c9f7); /* 파스텔 보라색과 하늘색 그라데이션 */
+    background: linear-gradient(135deg, #a0d8f5, #b6e1f9); /* 하늘색 그라데이션 */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,13 +22,13 @@ body {
     margin-top: 100px; /* 상단 여백 추가 */
 }
 
-/* Game box styling */
+/* Game box styling with rounded corners */
 .game-box {
     background: #ffffff;
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    border-radius: 20px;  /* 둥근 네모박스 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 500px;
     transition: transform 0.3s ease;
     margin-bottom: 50px;
 }
@@ -38,7 +38,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Game description styling */
+/* Game description styling inside rounded box */
 .game-description {
     font-size: 20px;
     color: #555;
@@ -47,7 +47,7 @@ body {
 
 /* Start button styling with 3D effect */
 .start-button {
-    background: linear-gradient(145deg, #6c5ce7, #a29bfe); /* 파스텔 보라색 그라데이션 */
+    background: linear-gradient(145deg, #76c7f7, #a0d8f5); /* 하늘색 그라데이션 */
     padding: 15px 30px;
     font-size: 24px;
     color: white;
@@ -56,10 +56,11 @@ body {
     cursor: pointer;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    margin-top: 20px;
 }
 
 .start-button:hover {
-    background: linear-gradient(145deg, #a29bfe, #6c5ce7); /* 반전된 그라데이션 효과 */
+    background: linear-gradient(145deg, #a0d8f5, #76c7f7); /* 반전된 그라데이션 효과 */
     transform: translateY(-3px);
 }
 
@@ -71,7 +72,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Situation box styling */
+/* Situation box styling inside rounded box */
 .situation-box {
     background: #ffffff;
     padding: 40px;
@@ -87,7 +88,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Situation description text styling */
+/* Situation description text styling inside rounded box */
 .situation-description {
     font-size: 18px;
     color: #666;
@@ -118,7 +119,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Answer popup styling */
+/* Answer popup styling inside rounded box */
 .answer-popup {
     display: none;
     position: fixed;
@@ -127,7 +128,7 @@ body {
     transform: translate(-50%, -50%);
     background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 300px;
@@ -159,4 +160,3 @@ body {
 button {
     margin-top: 20px;
 }
-
