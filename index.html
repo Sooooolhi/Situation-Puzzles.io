@@ -3,31 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>바다거북스프 게임</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Situration-Puzzles</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="game-status">
-            <h2>바다거북스프게임</h2>
-            <p id="situation">[한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 
-            경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다.
-                그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 
-            남자는 어떻게 죽게 되었을까요?]</p>
+    <div class="container" id="main-page">
+        <h1>Situration-Puzzles</h1>
+        <button id="start-button">Start</button>
+    </div>
+    
+    <div class="container" id="game-page" style="display: none;">
+        <h2>상황: 치명적인 장난</h2>
+        <div class="situation-box">
+            <p>한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다. 그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 남자는 어떻게 죽게 되었을까요?</p>
         </div>
-
-        <div class="chat-container" id="chat-container">
-            <div id="chat-log"></div>
-        </div>
-
-        <div class="input-container">
-            <input type="text" id="user-input" placeholder="질문을 입력하세요...">
-            <button id="send-button">질문하기</button>
-        </div>
-
-        <button id="start-game">게임 시작</button>
+        <div id="questions"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
