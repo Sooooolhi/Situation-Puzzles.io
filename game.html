@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상황: 치명적인 장난</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>게임</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="question-box">
+    <div class="game-container">
+        <div class="situation-box">
             <h2>상황: ‘치명적인 장난’</h2>
             <p>한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다. 그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 남자는 어떻게 죽게 되었을까요?</p>
         </div>
-        <div class="button-container">
+
+        <div class="question-buttons">
             <button class="answer-button" onclick="showPopup('예')">1. 질문 1</button>
             <button class="answer-button" onclick="showPopup('아니오')">2. 질문 2</button>
             <button class="answer-button" onclick="showPopup('그럴 수도 있음')">3. 질문 3</button>
@@ -34,7 +35,24 @@
             <button class="answer-button" onclick="showPopup('그럴 수도 있음')">19. 질문 19</button>
             <button class="answer-button" onclick="showPopup('관련없음')">20. 질문 20</button>
         </div>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="popup-close" onclick="closePopup()">&times;</span>
+                <p id="popup-message"></p>
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        function showPopup(message) {
+            document.getElementById('popup-message').textContent = message;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
