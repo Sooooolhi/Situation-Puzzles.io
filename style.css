@@ -1,127 +1,125 @@
-/* 기본 설정 */
+/* 전체 바디 스타일 */
 body {
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a0d8f1, #f9c5d1); /* 하늘색과 연핑크색 그라데이션 */
+    color: #333;
     margin: 0;
     padding: 0;
-    background: #F1F7FB; /* 연한 파스텔 하늘색 배경 */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    text-align: center; /* 모든 텍스트 중앙 정렬 */
 }
 
+/* 게임 컨테이너 */
 .game-container {
-    width: 80%;
-    max-width: 800px;
-    background-color: #fff;
-    padding: 20px;
+    background: white;
     border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* 게임 제목 */
-.game-container h2 {
-    font-size: 36px;
-    color: #5B8FBC; /* 하늘색 */
+/* 게임 상태 텍스트 */
+.game-status {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #6d4f8c;
     margin-bottom: 20px;
 }
 
-/* 상황 박스 */
-.situation-box {
-    background-color: #FBE6E6; /* 연핑크색 배경 */
+#situation {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 채팅 로그 */
+.chat-container {
+    background-color: #f1f1f1;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    font-size: 18px;
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+#chat-log {
+    font-size: 1.1rem;
     color: #333;
-    display: inline-block; /* 중앙 정렬을 위해 inline-block 사용 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    width: 100%;
 }
 
-/* 질문 버튼들 */
-.question-buttons {
+/* 입력 필드 */
+.input-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center; /* 버튼들 중앙 정렬 */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.question-button {
-    background-color: #A7D8F7; /* 연한 하늘색 */
-    color: #fff;
-    font-size: 18px;
-    padding: 15px;
+#user-input {
+    width: 80%;
+    padding: 12px;
+    border: 2px solid #c0c0c0;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    margin-right: 10px;
+}
+
+#user-input:focus {
+    border-color: #6d4f8c;
+}
+
+/* 질문 버튼 */
+#send-button {
+    padding: 12px 20px;
+    background-color: #6d4f8c;
+    color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    width: 70%; /* 버튼 크기 조정 */
-    margin: 0 auto; /* 버튼을 중앙 정렬 */
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
 }
 
-.question-button:hover {
-    background-color: #76B5D6; /* 버튼 호버 시 색상 */
+#send-button:hover {
+    background-color: #5a3e7b;
 }
 
-/* 팝업 */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    text-align: center; /* 팝업 내용 중앙 정렬 */
-}
-
-.popup-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 80%;
-}
-
-.popup-close {
-    font-size: 30px;
-    color: #FF6B6B; /* 연핑크색 */
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.popup-close:hover {
-    color: #FF4C4C; /* 호버 시 색상 */
-}
-
-.popup p {
-    font-size: 22px;
-    color: #333;
-}
-
-/* 버튼 스타일 */
-button {
-    font-size: 16px;
-    padding: 15px;
-    background-color: #FFBCF9; /* 연보라색 */
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+/* 게임 시작 버튼 */
+#start-game {
+    padding: 15px 30px;
+    background-color: #f4b9d1;
     color: white;
-    width: 70%; /* 버튼 크기 조정 */
-    margin: 0 auto; /* 버튼을 중앙 정렬 */
-    display: block;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #FF94F3; /* 버튼 호버 색상 */
+#start-game:hover {
+    background-color: #e79fb6;
+}
+
+/* 스크롤바 스타일 */
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background-color: #f4b9d1;
+    border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
 }
