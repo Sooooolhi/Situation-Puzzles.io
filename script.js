@@ -15,10 +15,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const chatRef = ref(db, "chats");
 
-
-
-
-
+// 메시지 보내기 함수
 function sendMessage() {
     const input = document.getElementById('user-input');
     const userMessage = input.value;
@@ -26,7 +23,7 @@ function sendMessage() {
 
     // Firebase에 메시지 저장
     push(chatRef, { message: userMessage, timestamp: Date.now() });
-    input.value = '';
+    input.value = ''; // 입력 필드 초기화
 }
 
 // Firebase에서 메시지 수신
@@ -37,11 +34,6 @@ onChildAdded(chatRef, (snapshot) => {
     messageBubble.textContent = `사용자: ${data.message}`;
     chat.appendChild(messageBubble);
 });
-
-
-
-
-
 
 
 
@@ -71,23 +63,16 @@ function sendMessage() {
 
 
 
-// Firebase 설정 코드 (app.js)
-const firebaseConfig = {
-    apiKey: "your-api-key",
-    authDomain: "your-project-id.firebaseapp.com",
-    databaseURL: "https://your-project-id.firebaseio.com",
-    projectId: "your-project-id",
-    storageBucket: "your-project-id.appspot.com",
-    messagingSenderId: "your-sender-id",
-    appId: "your-app-id"
-};
-firebase.initializeApp(firebaseConfig);
 
-// 메시지 기록을 Firebase에 저장
+
+// Firebase 설정 코드 (app.js)
+// Firebase에 메시지 기록을 저장하는 코드 부분은 이미 위에 존재하므로 이 코드는 중복입니다.
 firebase.database().ref("messages").push({
     user: "사용자",
     message: userInput
 });
+
+
 
 
 
@@ -116,3 +101,6 @@ app.post('/get-ai-response', async (req, res) => {
     
     res.json({ answer: aiAnswer });
 });
+
+
+
