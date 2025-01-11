@@ -1,168 +1,150 @@
-/* 전체 스타일 */
-body {
-    font-family: Arial, sans-serif;
+/* 기본 스타일 */
+html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-.game-status {
-    position: relative;
-    z-index: 10; /* 상단이 다른 요소에 가려지지 않도록 설정 */
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
 }
 
 /* 메인 페이지 */
-.main-container {
+.main-page-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f0f8ff;
+    background: linear-gradient(to bottom, #ff7f50, #ffb74d);
 }
 
 .main-box {
-    background: linear-gradient(145deg, #aee2f0, #ffcccb); /* 그라데이션 배경 */
-    padding: 40px;
-    border-radius: 20px;
     text-align: center;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: rotateY(0deg);
+    animation: rotate-box 6s infinite alternate;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
-.title {
-    font-size: 40px;
-    color: #ff6699;
+@keyframes rotate-box {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.main-title {
+    font-size: 50px;
+    color: #ff7f50;
     margin-bottom: 20px;
 }
 
-.description {
-    font-size: 20px;
+.main-description {
+    font-size: 22px;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-.start-button {
-    background: linear-gradient(145deg, #ff99a1, #ff6699); /* 그라데이션 버튼 */
+.start-game-button {
+    background-color: #ff7f50;
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     padding: 20px 40px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3);
-    transition: background 0.3s, transform 0.3s;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.start-button:hover {
-    background: linear-gradient(145deg, #ff6699, #ff99a1);
-    transform: translateY(-5px);
+.start-game-button:hover {
+    background-color: #ff5722;
 }
 
-.start-button:active {
-    transform: translateY(2px);
-}
-
-/* 게임 세부 페이지 스타일 */
+/* 게임 페이지 컨테이너 */
 .game-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* 콘텐츠가 상단에 위치하도록 */
     align-items: center;
-    padding: 20px;
-    background: #f0f8ff;
-    height: auto; /* 콘텐츠에 맞게 높이를 자동으로 조정 */
+    justify-content: flex-start;
+    padding-top: 50px;
+    min-height: 100vh;
+    text-align: center;
 }
 
 /* 상황 박스 */
 .situation-box {
-    background: linear-gradient(145deg, #aee2f0, #ffcccb); /* 상황 박스 그라데이션 */
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.3);
-    margin-bottom: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
     width: 80%;
-    text-align: center;
+    max-width: 600px;
 }
 
 .situation-title {
-    font-size: 30px;
-    color: #ff6699;
-    margin-bottom: 15px;
+    font-size: 32px;
+    color: #4a90e2;
+    margin-bottom: 10px;
 }
 
 .situation-description {
-    font-size: 18px;
+    font-size: 22px;
     color: #333;
-    line-height: 1.6;
 }
 
-/* 질문 버튼 */
+/* 질문 버튼들 */
 .question-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
-    max-width: 500px;
-    margin-top: 40px; /* 상단 여백 */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    width: 80%;
 }
 
+/* 각 질문 버튼 */
 .question-button {
-    background-color: #aee2f0; /* 흰색 배경 */
-    color: #333;
-    font-size: 20px; /* 폰트 크기 */
+    font-size: 20px;
     padding: 20px;
+    background-color: #4a90e2;
+    color: white;
     border: none;
-    border-radius: 40px;
+    border-radius: 8px;
     cursor: pointer;
-    width: 200%; /* 버튼 가로 크기를 100%로 */
-    height: 80px; /* 버튼 높이 */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.3);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80px;
 }
 
 .question-button:hover {
-    transform: translateY(-5px); /* 3D 효과 */
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.4); /* 호버 시 그림자 강하게 */
-}
-
-.question-button:active {
-    transform: translateY(2px);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 팝업창 스타일 */
 .answer-popup {
     display: none;
     position: fixed;
-    top: 100%;
-    left: 100%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #ffffff, #ffcccc); /* 팝업창 배경 그라데이션 */
-    padding: 30px;
+    padding: 20px;
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-#answer-text {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
 .close-popup {
-    background: linear-gradient(145deg, #ff6699, #ff99a1); /* 그라데이션 적용된 닫기 버튼 */
+    background-color: #f44336;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 30px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3);
-}
-
-.close-popup:hover {
-    background: linear-gradient(145deg, #ff99a1, #ff6699); /* 호버 시 색상 반전 */
-}
-
-.close-popup:active {
-    transform: translateY(2px);
+    margin-top: 10px;
 }
