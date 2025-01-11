@@ -91,3 +91,28 @@ firebase.database().ref("messages").push({
 
 
 
+const fetch = require('node-fetch');
+
+const openai_api_key = 'your-openai-api-key';
+
+app.post('/get-ai-response', async (req, res) => {
+    const question = req.body.question;
+    
+    const response = await fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${openai_api_key}`,
+        },
+        body: JSON.stringify({
+            model: "text-davinci-003",
+            prompt: question,
+            max_tokens: 50,
+        })
+    });
+
+    const data = await response.json();
+    const aiAnswer = data.choices[0].text.trim();
+    
+    res.json({ answer: aiAnswer });
+});
