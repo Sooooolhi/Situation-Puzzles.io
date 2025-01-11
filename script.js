@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+    document.getElementById('start-button').addEventListener('click', function() {
+    window.location.href = 'game.html';
+});
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
