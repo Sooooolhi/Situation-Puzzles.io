@@ -1,46 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>바다거북스프</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="app">
-        <h1>바다거북스프</h1>
-        <div id="chat"></div>
-        <input type="text" id="user-input" placeholder="질문을 입력하세요...">
-        <button onclick="sendMessage()">전송</button>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Yes/No Game</title>
+    <title>바다거북스프 게임</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat-box" class="chat-box"></div>
-        <input type="text" id="user-input" placeholder="질문을 입력하세요...">
-        <button id="send-button">보내기</button>
+    <div class="game-container">
+        <div class="game-status">
+            <h2>게임 상황</h2>
+            <p id="situation">[게임 상황 텍스트]</p>
+        </div>
+
+        <div class="chat-container" id="chat-container">
+            <div id="chat-log"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="질문을 입력하세요...">
+            <button id="send-button">질문하기</button>
+        </div>
+
+        <button id="start-game">게임 시작</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/firebase@9.0.2/firebase-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/firebase@9.0.2/firebase-database.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/firebase@9.0.2/firebase-functions.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.4.1/dist/socket.io.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
