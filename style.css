@@ -60,12 +60,11 @@ body {
 .game-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* 콘텐츠가 상단에 위치하도록 */
     align-items: center;
-    height: 100vh;
     padding: 20px;
     background: #f0f8ff;
-    display: none; /* 처음에는 숨김 처리 */
+    height: auto; /* 콘텐츠에 맞게 높이를 자동으로 조정 */
 }
 
 /* 상황 박스 */
