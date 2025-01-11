@@ -6,6 +6,11 @@ body {
     box-sizing: border-box;
 }
 
+.game-status {
+    position: relative;
+    z-index: 10; /* 상단이 다른 요소에 가려지지 않도록 설정 */
+}
+
 /* 메인 페이지 */
 .main-container {
     display: flex;
