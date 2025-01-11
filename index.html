@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Situration-Puzzles</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" id="main-page">
-        <h1>Situration-Puzzles</h1>
+    <div class="main-container">
+        <h1 class="game-title">Situration-Puzzles</h1>
+        <button id="start-button" class="start-button">Start</button>
         <img src="your-image-url.jpg" alt="게임 이미지" class="game-image">
-        <button id="start-button">Start</button>
-    </div>
-    
-    <div class="container" id="game-page" style="display: none;">
-        <h2>상황: 치명적인 장난</h2>
-        <div class="situation-box">
-            <p>한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다. 그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 남자는 어떻게 죽게 되었을까요?</p>
-        </div>
-        <div id="questions"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Start 버튼 클릭 시 문제 페이지로 이동
+        document.getElementById('start-button').addEventListener('click', function() {
+            window.location.href = 'game.html';
+        });
+    </script>
 </body>
 </html>
