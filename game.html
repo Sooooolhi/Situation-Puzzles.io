@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="situation-box">
+            <h2>상황: ‘치명적인 장난’</h2>
+            <p>한 남자가 높은 절벽 아래에서 사망한 채로 발견되었습니다. 경찰은 처음에 자살로 의심했지만, 절벽 위에는 그가 남긴 유서도, 발자국도 없었습니다. 그러나 근처에서 낡은 연이 발견되었고, 남자의 손에는 끊어진 줄이 쥐어져 있었습니다. 남자는 어떻게 죽게 되었을까요?</p>
+        </div>
+
+        <div class="question-buttons">
+            <button class="question-button" onclick="showPopup('질문 1에 대한 답변')">질문 1</button>
+            <button class="question-button" onclick="showPopup('질문 2에 대한 답변')">질문 2</button>
+            <button class="question-button" onclick="showPopup('질문 3에 대한 답변')">질문 3</button>
+            <button class="question-button" onclick="showPopup('질문 4에 대한 답변')">질문 4</button>
+            <button class="question-button" onclick="showPopup('질문 5에 대한 답변')">질문 5</button>
+        </div>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="popup-close" onclick="closePopup()">&times;</span>
+                <p id="popup-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(message) {
+            document.getElementById('popup-message').textContent = message;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
