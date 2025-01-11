@@ -1,45 +1,31 @@
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+document.getElementById("start-button").onclick = function() {
+    document.getElementById("main-page").style.display = "none";
+    document.getElementById("game-page").style.display = "block";
+    loadQuestions();
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-const chatRef = ref(db, "chats");
+function loadQuestions() {
+    const questions = [
+        "질문 1: 남자는 절벽에서 떨어졌습니까?",
+        "질문 2: 남자는 자살을 시도했습니까?",
+        "질문 3: 남자는 다른 사람에 의해 죽임을 당했습니까?",
+        "질문 4: 남자는 사고로 죽었습니까?",
+        "질문 5: 남자는 연을 날리다가 사고를 당했습니까?"
+    ];
 
-document.getElementById('send-button').addEventListener('click', sendMessage);
-
-function sendMessage() {
-    const input = document.getElementById('user-input');
-    const userMessage = input.value;
-    if (userMessage.trim() === '') return;
-
-    // Firebase에 메시지 저장
-    push(chatRef, { message: userMessage, timestamp: Date.now() });
-    input.value = '';
-    
-    // AI의 답변을 받아서 화면에 표시
-    getAIResponse(userMessage).then(aiResponse => {
-        const chatLog = document.getElementById('chat-log');
-        const aiBubble = document.createElement('div');
-        aiBubble.textContent = `AI: ${aiResponse}`;
-        chatLog.appendChild(aiBubble);
+    questions.forEach((q, index) => {
+        const button = document.createElement("button");
+        button.innerText = q;
+        button.onclick = () => showPopup(index + 1);
+        document.getElementById("questions").appendChild(button);
     });
 }
 
-async function getAIResponse(question) {
-    const response = await fetch('/get-ai-response', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ question }),
-    });
-    const data = await response.json();
-    return data.answer;
+function showPopup(questionNumber) {
+    const response = confirm(`질문 ${questionNumber}에 대한 답변을 선택하세요.\n\n예/아니오 또는 그럴 수도 있음/관련없음`);
+    if (response) {
+        alert("예/아니오 또는 그럴 수도 있음/관련없음");
+    } else {
+        alert("관련없음");
+    }
 }
