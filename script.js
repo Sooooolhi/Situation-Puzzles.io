@@ -67,3 +67,27 @@ function sendMessage() {
     // 입력 필드 초기화
     input.value = '';
 }
+
+
+
+
+// Firebase 설정 코드 (app.js)
+const firebaseConfig = {
+    apiKey: "your-api-key",
+    authDomain: "your-project-id.firebaseapp.com",
+    databaseURL: "https://your-project-id.firebaseio.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project-id.appspot.com",
+    messagingSenderId: "your-sender-id",
+    appId: "your-app-id"
+};
+firebase.initializeApp(firebaseConfig);
+
+// 메시지 기록을 Firebase에 저장
+firebase.database().ref("messages").push({
+    user: "사용자",
+    message: userInput
+});
+
+
+
