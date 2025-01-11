@@ -19,6 +19,33 @@ const chatRef = ref(db, "chats");
 
 
 
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const userMessage = input.value;
+    if (userMessage.trim() === '') return;
+
+    // Firebase에 메시지 저장
+    push(chatRef, { message: userMessage, timestamp: Date.now() });
+    input.value = '';
+}
+
+// Firebase에서 메시지 수신
+onChildAdded(chatRef, (snapshot) => {
+    const chat = document.getElementById('chat');
+    const data = snapshot.val();
+    const messageBubble = document.createElement('div');
+    messageBubble.textContent = `사용자: ${data.message}`;
+    chat.appendChild(messageBubble);
+});
+
+
+
+
+
+
+
+
+
 
 function sendMessage() {
     const input = document.getElementById('user-input');
